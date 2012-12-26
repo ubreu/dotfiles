@@ -1,0 +1,8 @@
+export COPYFILE_DISABLE=true
+export EDITOR="vim"
+export HISTCONTROL=ignoredups
+export HISTTIMEFORMAT="%F %T "
+export HISTSIZE=32768
+export HISTFILESIZE=$HISTSIZE
+export LANG=en_US.UTF-8
+export LC_ALL="en_US.UTF-8"
