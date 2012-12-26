@@ -1,0 +1,24 @@
+# general
+alias +='pushd .'
+alias -- -='popd'
+alias ..='cd ..'
+alias cp='cp -i'
+alias mv='mv -i'
+alias grep='grep --color=auto'
+alias l='ls -FlhA'
+alias lt='ls -FlhAtr'
+alias showlogin='pwsafe -Elup'
+alias t2d="date -j -f %s"
+alias d2t="date +%s"
+alias md5sum="md5"
+alias sha1sum="shasum"
+
+# dir aliases
+alias d='cd ~/Downloads/;ls -latr'
+
+# view HTTP traffic
+alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+
+# recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
