@@ -1,0 +1,12 @@
+pushd `dirname ${BASH_SOURCE[0]}` > /dev/null
+SCRIPTPATH=`pwd -P`
+popd > /dev/null
+
+for file in ${SCRIPTPATH}/*; do
+	[ -r "$file" ] && [[ $file != *bashrc ]] && source "$file"
+done
+unset file
+
+if [ -f ~/.bashrc.local ]; then
+	source ~/.bashrc.local
+fi
