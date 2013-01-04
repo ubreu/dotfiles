@@ -12,6 +12,9 @@ alias t2d="date -j -f %s"
 alias d2t="date +%s"
 alias md5sum="md5"
 alias sha1sum="shasum"
+alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+alias tu='top -o cpu' # CPU
+alias tm='top -o vsize' # Memory
 
 # dir aliases
 alias d='cd ~/Downloads/;ls -latr'
