@@ -3,10 +3,12 @@
 # Mercurial additions see http://blog.progs.be/?p=351
 #
 # ubreu:~/dev/dir[master]$ # clean working directory 
-# ubreu:~/dev/dir[master⚡]$ # dirty working directory
+# ubreu:~/dev/dir[master△]$ # dirty working directory
+
+DELTA_CHAR="△ "
 
 function parse_git_dirty {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "⚡"
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo $DELTA_CHAR
 }
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
@@ -14,7 +16,7 @@ function parse_git_branch {
 PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 
 function parse_hg_dirty {
-  [[ $( hg status 2> /dev/null ) != "" ]] && echo "⚡"
+  [[ $( hg status 2> /dev/null ) != "" ]] && echo $DELTA_CHAR
 }
 function parse_hg_branch {
   hg branch 2> /dev/null | sed -e "s/\(.*\)/[\1$(parse_hg_dirty)]/"
